@@ -25,9 +25,13 @@ Route::controller(NewsController::class)->prefix('admin')->group(function() {
 });
 
 Route::controller(ProfileController::class)->prefix('admin')->group(function() {
-    Route::get('news/profile', 'edit');
+    Route::get('profile/create', 'add');
 });
 
 Route::controller(AAAController::class)->prefix('admin')->group(function() {
     Route::get('hello/create', 'bbb');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
