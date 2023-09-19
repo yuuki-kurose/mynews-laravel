@@ -21,15 +21,12 @@ Route::get('/', function () {
 });
 
 Route::controller(NewsController::class)->prefix('admin')->group(function() {
-    Route::get('news/create', 'add');
+    Route::get('news/create', 'add')->middleware('auth');
 });
 
 Route::controller(ProfileController::class)->prefix('admin')->group(function() {
-    Route::get('profile/create', 'add');
-});
-
-Route::controller(AAAController::class)->prefix('admin')->group(function() {
-    Route::get('hello/create', 'bbb');
+    Route::get('profile/create', 'add')->middleware('auth');
+    Route::get('profile/edit', 'edit')->middleware('auth');
 });
 
 Auth::routes();
