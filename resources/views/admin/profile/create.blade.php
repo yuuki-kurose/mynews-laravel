@@ -43,6 +43,12 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">自己紹介</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="introduction" placeholder="自己紹介を入力してください" value="{{ old('introduction') }}"></textarea>
+                        </div>
+                    </div>
                     @csrf
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>
